@@ -1,1 +1,176 @@
+✅ RecycleVision – AI-Powered Garbage Classification
 
+♻️ RecycleVision is a deep-learning–based waste classification system that identifies garbage across 6, 10, and 12 categories using MobileNetV2, transfer learning, and a custom-built Streamlit web app.
+
+This project helps automate waste segregation, enabling better recycling and environmental sustainability.
+
+🚀 Features
+
+✔ Classify waste into 6, 10, or 12 classes
+✔ Uses MobileNetV2 (lightweight + accurate)
+✔ Fully functional Streamlit web app
+✔ Training pipelines for each dataset
+✔ Preprocessing & augmentation included
+✔ Supports custom image uploads
+✔ Real-time confidence score
+✔ Clean & modular code structure
+
+📂 Project Structure
+RecycleVision/
+│── train_6.py
+│── train_10.py
+│── train_12.py
+│── predict_6.py
+│── predict_10.py
+│── predict_12.py
+│── streamlit_app.py
+│── requirements.txt
+│── README.md
+│
+└── data/
+      ├── dataset_6_classes/
+      ├── dataset_10_classes/
+      └── dataset_12_classes/
+
+📦 Datasets Used
+6 Class Dataset
+
+https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification
+
+Classes include:
+cardboard, glass, metal, paper, plastic, trash
+
+10 Class Dataset
+
+https://www.kaggle.com/datasets/sumn2u/garbage-classification-v2
+
+Classes include:
+battery, biological, brown-glass, cardboard, clothes, green-glass, metal, paper, plastic, white-glass
+
+12 Class Dataset
+
+https://www.kaggle.com/datasets/mostafaabla/garbage-classification
+
+Classes include:
+battery, biological, brown-glass, cardboard, cloth, glass, green-glass, metal, paper, plastic, shoes, trash
+
+🧠 Model Architecture
+
+All models use:
+
+MobileNetV2 (pretrained on ImageNet)
+
+Global Average Pooling layer
+
+Dropout (0.3 – 0.4)
+
+Dense Softmax output
+
+Adam optimizer
+
+Categorical Crossentropy
+
+🏋️ Training Instructions
+Train 6-Class Model
+python train_6.py
+
+Train 10-Class Model
+python train_10.py
+
+Train 12-Class Model
+python train_12.py
+
+
+Each script automatically:
+
+✔ Loads data
+✔ Augments images
+✔ Trains + validates
+✔ Saves best model as:
+model_6_class.h5, model_10_class.h5, model_12_class.h5
+
+🔍 Prediction Scripts
+
+Predict using:
+
+predict_6.py
+predict_10.py
+predict_12.py
+
+
+Each file contains:
+
+✔ Image preprocessing
+✔ Loading correct model
+✔ Returning predicted class & confidence
+
+🌐 Streamlit App
+
+Run the web application:
+
+streamlit run streamlit_app.py
+
+
+App Features:
+
+Upload any garbage image
+
+Choose model: 6 / 10 / 12 class
+
+Shows prediction + confidence score
+
+Beautiful minimal interface
+
+🛠 Installation
+1️⃣ Create virtual environment
+python -m venv env
+source env/bin/activate     (Mac/Linux)
+env\Scripts\activate        (Windows)
+
+2️⃣ Install dependencies
+pip install -r requirements.txt
+
+🖼 Sample Output (expected)
+
+Model accuracy curves
+
+Loss curves
+
+Predicted labels with confidence
+
+(Upload your graphs later once models finish training.)
+
+🚀 Deploy Online (Streamlit Cloud)
+
+Push repo to GitHub
+
+Go to https://share.streamlit.io
+
+Select your repo
+
+Set:
+
+Main file: streamlit_app.py
+Python version: 3.9 or 3.10
+
+
+Deploy → Done!
+
+🤝 Contributing
+
+Pull requests are welcome!
+You may add:
+
+Better UI
+
+More datasets
+
+Model improvements
+
+Mobile app integration
+
+📜 License
+
+This project is released under the MIT License.
+
+⭐ If you found this project useful, give the repo a star!
