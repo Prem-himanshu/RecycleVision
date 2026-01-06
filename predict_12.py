@@ -1,28 +1,32 @@
 import numpy as np
 import tensorflow as tf
-from PIL import Image
 
-MODEL_PATH = "model_6_class.h5"
+MODEL_PATH = "model_12_class.h5"
 
 model = tf.keras.models.load_model(MODEL_PATH)
 
 CLASSES = [
+    "battery",
+    "biological",
+    "brown-glass",
     "cardboard",
-    "glass",
+    "clothes",
+    "green-glass",
     "metal",
     "paper",
     "plastic",
-    "trash"
+    "shoes",
+    "trash",
+    "white-glass"
 ]
 
-def predict_6(image):
+def predict_12(image):
     img = image.resize((224, 224))
     img = np.array(img) / 255.0
     img = np.expand_dims(img, axis=0)
 
     preds = model.predict(img)
     class_id = np.argmax(preds)
-    confidence = preds[0][class_id]
+    confidence = float(preds[0][class_id])
 
-    return CLASSES[class_id], float(confidence)
-
+    return CLASSES[class_id], confidence
