@@ -1,6 +1,5 @@
 import numpy as np
 import tensorflow as tf
-from PIL import Image
 
 MODEL_PATH = "model_6_class.h5"
 
@@ -22,7 +21,6 @@ def predict_6(image):
 
     preds = model.predict(img)
     class_id = np.argmax(preds)
-    confidence = preds[0][class_id]
+    confidence = float(preds[0][class_id])
 
-    return CLASSES[class_id], float(con_]()
-
+    return CLASSES[class_id], confidence
